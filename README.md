@@ -86,10 +86,26 @@ Matlab scripts that can generate additional data.
 
 After my turning off turn off radar or lidar, the accuracy was reduced. But the laser is obviously working with higher accuracy, like the picture shows:
 
-![](https://github.com/DongzhenHuangfu/CarND-Extended-Kalman-Filter-Project/raw/master/images/data1_rl.png "Dataset 1 with lidar and radar")
-![](https://github.com/DongzhenHuangfu/CarND-Extended-Kalman-Filter-Project/raw/master/images/data1_r.png "Dataset 1 with radar")
-![](https://github.com/DongzhenHuangfu/CarND-Extended-Kalman-Filter-Project/raw/master/images/data1_l.png "Dataset 1 with lidar")
+Dataset 1 with radar and lidar:
 
-![](https://github.com/DongzhenHuangfu/CarND-Extended-Kalman-Filter-Project/raw/master/images/data2_rl.png "Dataset 2 with lidar and radar")
-![](https://github.com/DongzhenHuangfu/CarND-Extended-Kalman-Filter-Project/raw/master/images/data2_r.png "Dataset 2 with radar")
-![](https://github.com/DongzhenHuangfu/CarND-Extended-Kalman-Filter-Project/raw/master/images/data2_l.png "Dataset 2 with lidar")
+<img width = "80%" height = "80%" src="https://github.com/DongzhenHuangfu/CarND-Extended-Kalman-Filter-Project/raw/master/images/data1_rl.png"/>
+
+Dataset 1 with radar:
+
+<img width = "80%" height = "80%" src="https://github.com/DongzhenHuangfu/CarND-Extended-Kalman-Filter-Project/raw/master/images/data1_r.png"/>
+
+Dataset 1 with lidar:
+
+<img width = "80%" height = "80%" src="https://github.com/DongzhenHuangfu/CarND-Extended-Kalman-Filter-Project/raw/master/images/data1_l.png"/>
+
+Dataset 2 with radar and lidar:
+
+<img width = "80%" height = "80%" src="https://github.com/DongzhenHuangfu/CarND-Extended-Kalman-Filter-Project/raw/master/images/data2_rl.png"/>
+
+Dataset 2 with radar:
+
+<img width = "80%" height = "80%" src="https://github.com/DongzhenHuangfu/CarND-Extended-Kalman-Filter-Project/raw/master/images/data2_r.png"/>
+
+Dataset 2 with lidar:
+
+<img width = "80%" height = "80%" src="https://github.com/DongzhenHuangfu/CarND-Extended-Kalman-Filter-Project/raw/master/images/data2_l.png"/>
