@@ -30,6 +30,7 @@ void KalmanFilter::Predict() {
   */
   x_ = F_ * x_;
   P_ = F_ * P_ * F_.transpose() + Q_;
+  std::cout<<"Finish Prediction!"<<std::endl;
 }
 
 void KalmanFilter::Update(const VectorXd &z) {
@@ -47,6 +48,8 @@ void KalmanFilter::Update(const VectorXd &z) {
   long x_size = x_.size();
   MatrixXd I = MatrixXd::Identity(x_size, x_size);
   P_ = (I - K * H_ ) * P_;
+
+  std::cout<<"Finish Laser!"<<std::endl;
 }
 
 void KalmanFilter::UpdateEKF(const VectorXd &z) {
@@ -55,27 +58,30 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
     * update the state by using Extended Kalman Filter equations
   */
 
-  float px = x_[0];
-  float py = x_[1];
-  float vx = x_[2];
-  float vy = x_[3];
+  float px = x_(0);
+  float py = x_(1);
+  float vx = x_(2);
+  float vy = x_(3);
   float b = sqrt(px * px + py * py);
+  float rho_dot;
   if(fabs(b) < 0.0001){
-    std::cout << "Calculate State - Error - Division by Zero" << std::endl;
-    return;
+    rho_dot = (px * vx + py * vy) / 0.0001;
+  }
+  else {
+    rho_dot = (px * vx + py * vy)/b;
   }
 
   VectorXd hx;
   hx = VectorXd(3);
-  hx << b, atan2(py, px), (py * vx + px * vy)/b;
+  hx << b, atan2(py, px), rho_dot;
   VectorXd z_trans = z;
-  for(;z_trans[1]<(-PI);)
+  for(;z_trans(1)<(-PI);)
   {
-    z_trans[1] = z_trans[1] + 2 * PI;
+    z_trans(1) += 2 * PI;
   }
-  for(;z_trans[1]>PI;)
+  for(;z_trans(1)>=PI;)
   {
-    z_trans[1] = z_trans[1] - 2 * PI;
+    z_trans(1) -= 2 * PI;
   }
 
   VectorXd y = z_trans - hx;
@@ -88,4 +94,5 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
   MatrixXd I = MatrixXd::Identity(x_size, x_size);
   P_ = (I - K * H_ ) * P_;
 
+  std::cout<<"Finish Radar!"<<std::endl;
 }
